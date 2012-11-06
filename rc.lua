@@ -51,6 +51,12 @@ require("tags")
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
+require('freedesktop.utils')
+freedesktop.utils.terminal = terminal
+freedesktop.utils.icon_theme = 'Tango'
+require('freedesktop.menu')
+menu_items = freedesktop.menu.new()
+
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
@@ -58,21 +64,9 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
-gfxmenu = {
-   { "inkscape", "inkscape" },
-   { "gimp", "gimp" },
-   { "gthumb", "gthumb" }
-}
+table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
 
-mymainmenu = awful.menu({ items = {
-   { "terminal", terminal },
-   { "graphics", gfxmenu },
-   { "firefox", "firefox" },
-   { "pidgin", "pidgin" },
-   { "vlc", "vlc" },
-   { "leafpad", "leafpad" },
-   { "awesome", myawesomemenu, beautiful.awesome_icon }
- }})
+mymainmenu = awful.menu.new({ items = menu_items, width = 200 })
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
