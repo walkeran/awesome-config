@@ -16,6 +16,13 @@ terminal = "xterm -fg green -bg black -sl 10000"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
+-- This should disable the annoying stopwatch loading cursor
+-- As per https://awesome.naquadah.org/wiki/Disable_startup-notification_globally
+local oldspawn = awful.util.spawn
+awful.util.spawn = function (s)
+  oldspawn(s, false)
+end
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
