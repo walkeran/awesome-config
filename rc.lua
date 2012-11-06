@@ -12,8 +12,8 @@ require("naughty")
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "xterm -fg green -bg black -sl 10000"
+editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -33,11 +33,7 @@ layouts =
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    awful.layout.suit.max
 }
 -- }}}
 
