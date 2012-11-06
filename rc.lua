@@ -116,10 +116,21 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+gfxmenu = {
+   { "inkscape", "inkscape" },
+   { "gimp", "gimp" },
+   { "gthumb", "gthumb" }
+}
+
+mymainmenu = awful.menu({ items = {
+   { "terminal", terminal },
+   { "graphics", gfxmenu },
+   { "firefox", "firefox" },
+   { "pidgin", "pidgin" },
+   { "vlc", "vlc" },
+   { "leafpad", "leafpad" },
+   { "awesome", myawesomemenu, beautiful.awesome_icon }
+ }})
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
