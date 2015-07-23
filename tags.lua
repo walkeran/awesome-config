@@ -56,7 +56,7 @@ for s, scrsettings in ipairs(settings) do
    for i, property in ipairs(scrsettings.tags.property) do
       awful.tag.setproperty(tags[s][i], "mwfact", property.mwfact)
       awful.tag.setproperty(tags[s][i], "nmaster", property.nmaster)
-      awful.tag.setproperty(tags[s][i], "ncol", property.ncols)
+      awful.tag.setproperty(tags[s][i], "ncol", property.ncol)
    end
 end
 -- }}}
